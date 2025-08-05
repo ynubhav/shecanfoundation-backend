@@ -19,10 +19,11 @@ app.post("/signup", async (req, res) => {
     const user = req.body;
     //email name referralcode amountraised
     const email = user.email;
-    const name = user.name;
+    const name = user.name.trim();
     const phone = user.phone;
     const password = user.password;
-    const referralcode = name.split(" ")[0] + "2025";
+    const referral = name.split(" ")[0] + "2025";
+    const referralcode=referral.toUpperCase();
     const amountraised = Math.floor(Math.random() * 1000);
     const createuser = await User.create({
       email,
