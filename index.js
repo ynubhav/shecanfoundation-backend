@@ -13,7 +13,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
 //signup
 app.post("/signup", async (req, res) => {
   try {
@@ -90,6 +89,9 @@ app.get("/leaderboard", async (req, res) => {
   }
 });
 
+app.use((req,res)=>{
+  res.json({message:"Server is live"});
+})
 app.listen(process.env.port, () => {
   console.log(`running on port :${process.env.port}`);
 });
